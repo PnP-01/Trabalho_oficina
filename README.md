@@ -63,9 +63,6 @@ Contém:
 - Leitura e gravação no arquivo  
 - Carregamento inicial
 
-### 🔹 `OficinaGUI`  
-Interface gráfica básica utilizando Java Swing.
-
 ---
 
 ## 🗂️ Persistência de Dados
@@ -79,63 +76,13 @@ Copiar código
 
 Formato utilizado (cada linha representa um veículo):
 
-ID;TIPO;MARCA;MODELO;ANO;PROBLEMA
+ID; TIPO; MARCA; MODELO; ANO; PROBLEMA
 
 Exemplo:
 
-1;Carro;Toyota;Corolla;2015;Barulho na suspensão
+1;Carro; Toyota; Corolla;2015; Barulho na suspensão
 
-2;Moto;Honda;CG 160;2020;Falha na aceleração
-
----
-
-## 💻 Interface Gráfica (Swing)
-
-O projeto inclui uma interface gráfica simples com:
-
-- Lista de veículos
-- Botão para cadastrar Carro
-- Botão para cadastrar Moto
-- Botão para excluir veículo selecionado
-
-### 🖼️ Prévia da Interface (conceito)
-
-┌─────────────────────────────────────┐
-│ Sistema da Oficina │
-│ ─────────────────────────────────── │
-│ [ 1 - Carro Toyota Corolla 2015 ] │
-│ [ 2 - Moto Honda CG 2020 ] │
-│ │
-│ (Cadastrar Carro) (Cadastrar Moto) │
-│ (Excluir) │
-└─────────────────────────────────────┘
-
-
----
-
-## ▶️ Como Executar
-
-1. Certifique-se de ter o **Java 8+** instalado.
-2. Compile os arquivos:
-
-javac *.java
-
-markdown
-Copiar código
-
-3. Rode o programa principal:
-
-java OficinaMain
-
-kotlin
-Copiar código
-
-4. Caso queira abrir a interface gráfica:
-
-java OficinaGUI
-
-yaml
-Copiar código
+2;Moto; Honda; CG 160; 2020; Falha na aceleração
 
 ---
 
@@ -158,3 +105,29 @@ Este projeto é distribuído para fins educacionais e demonstrativos.
 Fique à vontade para modificar conforme suas necessidades.
 
 ---
+## ✏️ Autores
+<div style="display: flex; justify-content: center; align-items: center; gap: 40px;">
+  <a href="https://github.com/PnP-01" style="text-decoration: none; color: inherit;">
+    <div style="text-align: center;">
+      <img src="https://github.com/PnP-01.png?size=75" 
+           alt="Perfil PnP-01" 
+           width="75" 
+           height="75"
+           style="border-radius: 50%;">
+      <br>
+      <b>@PnP-01</b>
+    </div>
+  </a>
+  
+  <a href="https://github.com/Llawlietl1" style="text-decoration: none; color: inherit;">
+    <div style="text-align: center;">
+      <img src="https://github.com/Llawlietl1.png?size=75" 
+           alt="Perfil Llawlietl1" 
+           width="75" 
+           height="75"
+           style="border-radius: 50%;">
+      <br>
+      <b>@Llawlietl1</b>
+    </div>
+  </a>
+</div>
