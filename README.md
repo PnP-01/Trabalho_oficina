@@ -81,16 +81,11 @@ Formato utilizado (cada linha representa um veículo):
 
 ID;TIPO;MARCA;MODELO;ANO;PROBLEMA
 
-makefile
-Copiar código
-
 Exemplo:
 
 1;Carro;Toyota;Corolla;2015;Barulho na suspensão
-2;Moto;Honda;CG 160;2020;Falha na aceleração
 
-yaml
-Copiar código
+2;Moto;Honda;CG 160;2020;Falha na aceleração
 
 ---
 
@@ -115,8 +110,6 @@ O projeto inclui uma interface gráfica simples com:
 │ (Excluir) │
 └─────────────────────────────────────┘
 
-yaml
-Copiar código
 
 ---
 
