@@ -1,119 +1,120 @@
 import java.util.ArrayList;
 import java.util.Scanner;
-import java.io.FileWriter;
-import java.io.IOException;
 
+// Programa principal
 public class OficinaMain {
 
-    static Scanner sc = new Scanner(System.in);        // Entrada
-    static ArrayList<Veiculo> veiculos = new ArrayList<>(); // Lista
-    static int contadorId = 1;                         // Controle ID
-
     public static void main(String[] args) {
-        int opc;
+
+        Scanner sc = new Scanner(System.in);
+        ArrayList<Veiculo> lista = new ArrayList<>();
+        int opcao;
+        int idContador = 1;
 
         do {
-            System.out.println("\n===== SISTEMA DE OFICINA =====");
-            System.out.println("1 - Cadastrar veículo");
-            System.out.println("2 - Listar veículos");
-            System.out.println("3 - Atualizar veículo");
-            System.out.println("4 - Excluir veículo");
-            System.out.println("5 - Salvar em arquivo");
+            System.out.println("\n===== OFICINA =====");
+            System.out.println("1 - Cadastrar Carro");
+            System.out.println("2 - Cadastrar Moto");
+            System.out.println("3 - Listar Veículos");
+            System.out.println("4 - Emitir Som de um Veículo");
+            System.out.println("5 - Excluir Veículo");
             System.out.println("0 - Sair");
-            System.out.print("Escolha: ");
-            opc = sc.nextInt();
+            System.out.print("Opção: ");
+            opcao = sc.nextInt();
             sc.nextLine();
 
-            switch (opc) {
-                case 1 -> cadastrarVeiculo();   // Cadastro
-                case 2 -> listarVeiculos();     // Listar
-                case 3 -> atualizarVeiculo();   // Atualizar
-                case 4 -> excluirVeiculo();     // Excluir
-                case 5 -> salvarEmArquivo();    // Salvar txt
-                case 0 -> System.out.println("Saindo...");
-                default -> System.out.println("Opção inválida!");
+            switch (opcao) {
+
+                case 1: // cadastrar carro
+                    System.out.print("Marca: ");
+                    String marcaC = sc.nextLine();
+                    System.out.print("Modelo: ");
+                    String modeloC = sc.nextLine();
+                    System.out.print("Ano: ");
+                    int anoC = sc.nextInt();
+                    sc.nextLine();
+                    System.out.print("Problema: ");
+                    String problemaC = sc.nextLine();
+
+                    lista.add(new Carro(idContador++, marcaC, modeloC, anoC, problemaC));
+                    System.out.println("Carro cadastrado!");
+                    break;
+
+                case 2: // cadastrar moto
+                    System.out.print("Marca: ");
+                    String marcaM = sc.nextLine();
+                    System.out.print("Modelo: ");
+                    String modeloM = sc.nextLine();
+                    System.out.print("Ano: ");
+                    int anoM = sc.nextInt();
+                    sc.nextLine();
+                    System.out.print("Problema: ");
+                    String problemaM = sc.nextLine();
+
+                    lista.add(new Moto(idContador++, marcaM, modeloM, anoM, problemaM));
+                    System.out.println("Moto cadastrada!");
+                    break;
+
+                case 3: // listar
+                    if (lista.isEmpty()) {
+                        System.out.println("Nenhum veículo cadastrado.");
+                    } else {
+                        System.out.println("\n=== VEÍCULOS ===");
+                        for (Veiculo v : lista) {
+                            System.out.println(v);
+                        }
+                    }
+                    break;
+
+                case 4: // emitir som
+                    System.out.print("ID do veículo: ");
+                    int idSom = sc.nextInt();
+
+                    Veiculo achadoSom = null;
+                    for (Veiculo v : lista) {
+                        if (v.getId() == idSom) {
+                            achadoSom = v;
+                            break;
+                        }
+                    }
+
+                    if (achadoSom == null) {
+                        System.out.println("Veículo não encontrado.");
+                    } else {
+                        System.out.println("Som: " + achadoSom.emitirSom());
+                    }
+                    break;
+
+                case 5: // excluir
+                    System.out.print("ID para excluir: ");
+                    int idExc = sc.nextInt();
+
+                    Veiculo achadoExc = null;
+                    for (Veiculo v : lista) {
+                        if (v.getId() == idExc) {
+                            achadoExc = v;
+                            break;
+                        }
+                    }
+
+                    if (achadoExc == null) {
+                        System.out.println("Veículo não encontrado.");
+                    } else {
+                        lista.remove(achadoExc);
+                        System.out.println("Veículo removido!");
+                    }
+                    break;
+
+                case 0:
+                    System.out.println("Saindo...");
+                    break;
+
+                default:
+                    System.out.println("Opção inválida.");
             }
-        } while (opc != 0);
-    }
 
-    // Cadastro simples
-    public static void cadastrarVeiculo() {
-        System.out.print("Marca: ");
-        String marca = sc.nextLine();
-        System.out.print("Modelo: ");
-        String modelo = sc.nextLine();
-        System.out.print("Ano: ");
-        int ano = sc.nextInt();
+        } while (opcao != 0);
 
-        Veiculo v = new Veiculo(contadorId++, marca, modelo, ano);
-        veiculos.add(v);
-
-        System.out.println("Veículo cadastrado!");
-    }
-
-    // Listagem da lista
-    public static void listarVeiculos() {
-        if (veiculos.isEmpty()) {
-            System.out.println("Nenhum veículo cadastrado.");
-            return;
-        }
-
-        for (Veiculo v : veiculos) {
-            System.out.println(v);
-        }
-    }
-
-    // Atualização por ID
-    public static void atualizarVeiculo() {
-        System.out.print("ID para atualizar: ");
-        int id = sc.nextInt();
-        sc.nextLine();
-
-        for (Veiculo v : veiculos) {
-            if (v.getId() == id) {
-                System.out.print("Nova marca: ");
-                v.setMarca(sc.nextLine());
-                System.out.print("Novo modelo: ");
-                v.setModelo(sc.nextLine());
-                System.out.print("Novo ano: ");
-                v.setAno(sc.nextInt());
-
-                System.out.println("Atualizado!");
-                return;
-            }
-        }
-        System.out.println("ID não encontrado.");
-    }
-
-    // Remoção por ID
-    public static void excluirVeiculo() {
-        System.out.print("ID para excluir: ");
-        int id = sc.nextInt();
-
-        for (Veiculo v : veiculos) {
-            if (v.getId() == id) {
-                veiculos.remove(v);
-                System.out.println("Veículo removido!");
-                return;
-            }
-        }
-        System.out.println("ID não encontrado.");
-    }
-
-    // Salva todos os veículos em arquivo.txt
-    public static void salvarEmArquivo() {
-        try {
-            FileWriter fw = new FileWriter("veiculos.txt");
-
-            for (Veiculo v : veiculos) {
-                fw.write(v.toString() + "\n"); // Escreve cada veículo
-            }
-
-            fw.close();
-            System.out.println("Arquivo salvo como 'veiculos.txt'!");
-
-        } catch (IOException e) {
-            System.out.println("Erro ao salvar arquivo.");
-        }
+        sc.close();
     }
 }

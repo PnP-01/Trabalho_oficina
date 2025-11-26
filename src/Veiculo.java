@@ -1,38 +1,34 @@
-// Classe que representa um veículo
+// Classe base
 public class Veiculo {
+    private int id;
+    private String marca;
+    private String modelo;
+    private int ano;
+    private String problema; // problema do veiculo
 
-    private int id;        // Identificador
-    private String marca;  // Marca
-    private String modelo; // Modelo
-    private int ano;       // Ano
-
-    // Construtor
-    public Veiculo(int id, String marca, String modelo, int ano) {
+    public Veiculo(int id, String marca, String modelo, int ano, String problema) {
         this.id = id;
         this.marca = marca;
         this.modelo = modelo;
         this.ano = ano;
+        this.problema = problema;
     }
 
-    // Gets
     public int getId() { return id; }
     public String getMarca() { return marca; }
     public String getModelo() { return modelo; }
     public int getAno() { return ano; }
+    public String getProblema() { return problema; }
 
-    // Sets
     public void setMarca(String marca) { this.marca = marca; }
     public void setModelo(String modelo) { this.modelo = modelo; }
     public void setAno(int ano) { this.ano = ano; }
+    public void setProblema(String problema) { this.problema = problema; }
 
-    // Som do veículo
-    public String emitirSom() {
-        return "BIIH BIHH";
-    }
+    public String emitirSom() { return "BIIH BIHH"; }
 
-    // Exibição do objeto
     @Override
     public String toString() {
-        return "ID: " + id + " | " + marca + " " + modelo + " (" + ano + ")";
+        return "ID: " + id + " | " + marca + " " + modelo + " (" + ano + ") - Problema: " + problema;
     }
 }
