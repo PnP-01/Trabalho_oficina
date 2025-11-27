@@ -25,16 +25,19 @@ Possui uma estrutura totalmente orientada a objetos, com herança, interface gr�
 
 ## 🧩 Estrutura de Classes
 📦 src
+
 │
+
 ├── Veiculo.java
+
 ├── Carro.java
+
 ├── Moto.java
+
 ├── OficinaMain.java
+
 └── OficinaGUI.java
 
-
-markdown
-Copiar código
 
 ### 🔹 `Veiculo`  
 Classe abstrata base com:
@@ -70,9 +73,6 @@ Contém:
 Todos os veículos cadastrados são armazenados em:
 
 bancodedados.txt
-
-java
-Copiar código
 
 Formato utilizado (cada linha representa um veículo):
 
