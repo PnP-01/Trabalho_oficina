@@ -116,18 +116,4 @@ Fique à vontade para modificar conforme suas necessidades.
            style="border-radius: 50%;">
       <br>
       <b>@PnP-01</b>
-    </div>
-  </a>
-  
-  <a href="https://github.com/Llawlietl1" style="text-decoration: none; color: inherit;">
-    <div style="text-align: center;">
-      <img src="https://github.com/Llawlietl1.png?size=75" 
-           alt="Perfil Llawlietl1" 
-           width="75" 
-           height="75"
-           style="border-radius: 50%;">
-      <br>
-      <b>@Llawlietl1</b>
-    </div>
-  </a>
 </div>
